@@ -15,6 +15,68 @@ ActiveRecord::Schema.define(version: 2020_04_26_020356) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "conversations", force: :cascade do |t|
+    t.string "title"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.string "title"
+    t.text "content"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "origins", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "partnerships", force: :cascade do |t|
+    t.boolean "active"
+    t.integer "initiator_id"
+    t.boolean "pending"
+    t.boolean "subscription"
+    t.text "conditions"
+    t.text "message_log"
+    t.integer "user_id"
+    t.integer "userproduct_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "products", force: :cascade do |t|
+    t.string "name"
+    t.integer "category_id"
+    t.integer "origin_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "user_products", force: :cascade do |t|
+    t.text "img_src"
+    t.text "description"
+    t.string "product_type"
+    t.text "tags"
+    t.boolean "active"
+    t.integer "karma_value"
+    t.boolean "flagged"
+    t.text "flagged_message"
+    t.integer "user_id"
+    t.integer "product_id"
+    t.integer "partnership_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email"
     t.string "password_digest"
