@@ -80,6 +80,14 @@ ActiveRecord::Schema.define(version: 2020_04_26_020356) do
   create_table "users", force: :cascade do |t|
     t.string "email"
     t.string "password_digest"
+    t.text "avatar_src"
+    t.integer "zip_code"
+    t.string "farm_name"
+    t.string "street_address"
+    t.string "city"
+    t.integer "karma"
+    t.integer "karmic_level"
+    t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

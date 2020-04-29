@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :partnerships
   resources :categories
   resources :products
+  resources :users
   resources :user_products
   resources :sessions, only: [:create]
   resources :registrations, only: [:create]

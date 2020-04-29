@@ -62,9 +62,9 @@ prod022 = Product.create(name:"Starting a small Hydroponic Garden", origin_id: 7
 
 
 #Users
-User.create(name:"Dane", farm_name:"The Good Place", zip_code:78737)
-User.create(name:"Lugh", farm_name:"The Okay Place", zip_code:78744)
-User.create(name:"Aaiden", farm_name:"No One Cares", zip_code:78737)
+User.create(name:"Dane", email:"dane@dane.com", farm_name:"The Good Place", zip_code:78737)
+User.create(name:"Lugh", email:"lugh@dane.com", farm_name:"The Okay Place", zip_code:78744)
+User.create(name:"Aaiden", email:"aaiden@dane.com", farm_name:"No One Cares", zip_code:78737)
 
 
 
