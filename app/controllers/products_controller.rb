@@ -42,6 +42,10 @@ class ProductsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_product
       @product = Product.find(params[:id])
+      category=product.category
+      origin=product.origin
+      @product=[product, category, origin]
+      return @product
     end
 
     # Only allow a trusted parameter "white list" through.
