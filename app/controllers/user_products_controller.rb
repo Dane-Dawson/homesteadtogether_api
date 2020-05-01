@@ -5,12 +5,12 @@ class UserProductsController < ApplicationController
   def index
     @user_products = UserProduct.all
 
-    render json: @user_products
+    render json: @user_products, include: [:user, :product]
   end
 
   # GET /user_products/1
   def show
-    render json: @user_product
+    render json: @user_product, include: [:user, :product]
   end
 
   # POST /user_products

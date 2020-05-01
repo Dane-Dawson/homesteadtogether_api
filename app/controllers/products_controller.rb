@@ -5,12 +5,12 @@ class ProductsController < ApplicationController
   def index
     @products = Product.all
 
-    render json: @products
+    render json: @products, include: [:origin, :category]
   end
 
   # GET /products/1
   def show
-    render json: @product
+    render json: @product, include: [:origin, :category]
   end
 
   # POST /products
@@ -42,10 +42,10 @@ class ProductsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_product
       @product = Product.find(params[:id])
-      category=product.category
-      origin=product.origin
-      @product=[product, category, origin]
-      return @product
+      # category=product.category
+      # origin=product.origin
+      # @product=[product, category, origin]
+      # return @product
     end
 
     # Only allow a trusted parameter "white list" through.

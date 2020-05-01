@@ -3,8 +3,8 @@ class CreateUserProducts < ActiveRecord::Migration[6.0]
     create_table :user_products do |t|
       t.text :img_src
       t.text :description
-      t.string :product_type
       t.text :tags
+      t.string :product_type
       t.boolean :active
       t.integer :karma_value
       t.boolean :flagged
