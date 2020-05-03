@@ -16,6 +16,8 @@ class ProductsController < ApplicationController
   # POST /products
   def create
     @product = Product.new(product_params)
+    @product.origin = Origin.find_by(id: @product.origin_id)
+    @product.category = Category.find_by(id: @product.category_id)
 
     if @product.save
       render json: @product, status: :created, location: @product
@@ -42,14 +44,14 @@ class ProductsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_product
       @product = Product.find(params[:id])
-      # category=product.category
-      # origin=product.origin
-      # @product=[product, category, origin]
-      # return @product
+      category=product.category
+      origin=product.origin
+      @product=[product, category, origin]
+      return @product
     end
 
     # Only allow a trusted parameter "white list" through.
     def product_params
-      params.require(:product).permit(:product)
+      params.require(:product).permit(:name, :category_id, :origin_id)
     end
 end
