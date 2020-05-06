@@ -1,5 +1,5 @@
 class UserProductsController < ApplicationController
-  before_action :set_user_product, only: [:show, :update, :destroy]
+  before_action :set_user_product, only: [:show]
 
   # GET /user_products
   def index
@@ -40,6 +40,7 @@ class UserProductsController < ApplicationController
 
   # PATCH/PUT /user_products/1
   def update
+    @user_product = UserProduct.find(params[:id])
     if @user_product.update(user_product_params)
       render json: @user_product
     else
@@ -49,6 +50,7 @@ class UserProductsController < ApplicationController
 
   # DELETE /user_products/1
   def destroy
+    @user_product = UserProduct.find(params[:id])
     @user_product.destroy
   end
 

@@ -3,5 +3,5 @@ class UserProduct < ApplicationRecord
     belongs_to :product
     has_one :category, through: :product
     has_one :origin, through: :product
-    has_many :partnerships
+    # has_many :partnerships
 end
